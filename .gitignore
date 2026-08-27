@@ -1,4 +1,7 @@
 .DS_Store
 Thumbs.db
 *.swp
-.cursor/plans/
+output/kdp/
+*.pdf
+
+node_modules/

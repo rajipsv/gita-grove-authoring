@@ -15,7 +15,7 @@ Drafting or editing **`gv{book}_a{adv}`** adventure modules for Gita Grove (Seed
 
 ## Read first (in order)
 
-1. [AGENTS.md](../../AGENTS.md) in kit repo, or `AGENTS-GITA-GROVE.md` in littleepicminds — architecture
+1. `AGENTS-GITA-GROVE.md` (app repo) or kit `AGENTS.md` — architecture
 2. `docs/gita-grove-capabilities.md` — power + sub-skill for target book
 3. `docs/gita-grove-series-v2.md` — synopsis row
 4. `docs/character-bible.md` + `docs/universe-bible.md` — cast/world
@@ -36,20 +36,24 @@ Grove Power → sub-skill → location → lead flaw → scenario → story → 
 ```
 - [ ] Confirm adventureId, power, sub-skill, lead, location from curriculum
 - [ ] Read openingHook + prior adventure page-25 teaser
-- [ ] Write story ~320–480 words (pages 3–15 beats)
-- [ ] Moral (1 sentence) + child repeat line
-- [ ] 3 practice activities tied to sub-skill
+- [ ] Write docs/books/gv{book}_a{adv}-{slug}.story.json — ordered pages[] with beat, text, imagePrompt
+- [ ] Write docs/books/gv{book}_a{adv}-{slug}.md — metadata + back matter only (Moral → Teaser)
+- [ ] npm run grove:validate -- --id=gv{book}_a{adv}
+- [ ] npm run grove:compile -- --id=gv{book}_a{adv}  (optional — preview ## Story in md)
 - [ ] Pair 2 ślokas; write Guru Ma line (see reference-guru-ma.md)
-- [ ] Page 25 teaser to next adventure
-- [ ] Art briefs (4 key spreads)
-- [ ] Save docs/books/gv{book}_a{adv}-{slug}.md
+- [ ] Art briefs (4 key spreads) in markdown
 - [ ] Update curriculum JSON entry
 ```
+
+**Hybrid files:** Story lives in **`*.story.json`**; markdown holds back matter with one `###` block per printed page. Export reads JSON directly — compile is optional for human preview.
+
+**Scaffold new story:** `npm run grove:generate-story -- --id=gv01_a3 --write-scaffold --write-prompt`
 
 ## File naming
 
 ```
-docs/books/gv{book}_a{adv}-{slug}.md
+docs/books/gv{book}_a{adv}-{slug}.md          # metadata + back matter
+docs/books/gv{book}_a{adv}-{slug}.story.json  # story pages (canonical)
 ```
 
 Examples: `gv01_a1-the-fair-before-the-drum.md`, `gv01_a2-mimis-butterflies.md`

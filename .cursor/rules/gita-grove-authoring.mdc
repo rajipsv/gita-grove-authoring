@@ -5,7 +5,11 @@ alwaysApply: true
 
 # Gita Grove authoring (always allow)
 
-The user has **pre-approved** all Gita Grove v2 work in this repo. Do **not** ask for confirmation before drafting manuscripts, updating curriculum, or creating hooks unless they explicitly say to stop.
+The user has **pre-approved** all Gita Grove v2 work. Do **not** ask for confirmation before drafting unless they say to stop.
+
+## Git (when syncing to littleepicminds)
+
+- Target branch: **`feature/gita-grove`** only — **never** `main` (`main` is live production).
 
 ## Before drafting
 

@@ -8,10 +8,10 @@ How Cursor agents write Grove stories. **Read `.cursor/skills/gita-grove-manuscr
 
 | Repo | Role |
 |------|------|
-| **gita-grove-authoring** (this) | Bibles, manuscripts, curriculum, Cursor skills/rules |
+| **gita-grove-authoring** (this) | Bibles, manuscripts, curriculum, KDP tooling, Cursor skills |
 | **littleepicminds** | React app, audio, legacy Gita theme import (`sd*`/`sk*`) |
 
-Do **not** mix legacy theme auto-seed pipelines with Grove v2 manuscripts.
+**Sync:** `.\scripts\sync-to-app.ps1` copies **content only** (docs + curriculum) to littleepicminds — not export scripts. See `SYNC.md`.
 
 ---
 
@@ -42,11 +42,15 @@ Do **not** mix legacy theme auto-seed pipelines with Grove v2 manuscripts.
 ```
 Curriculum entry (synopsis)
     → Read hooks for book (e.g. gv01-book-hooks.md)
-    → Draft docs/books/gv##_a#-slug.md
+    → Draft *.story.json (story pages: beat, text, imagePrompt)
+    → Draft *.md (metadata + Moral → Teaser back matter)
+    → npm run grove:validate -- --id=gv##_a#
     → Pair 2 ślokas + Guru Ma line (Bhagavad Gita / puranas)
     → Update scripts/data/gita-grove-curriculum.json
-    → Optional: sync to littleepicminds (SYNC.md)
+    → npm run grove:export-kdp -- --file=docs/books/....md --format=book
 ```
+
+**Code layout:** `scripts/lib/grove-manuscript/` (loadAdventure, validate, compile) · `scripts/lib/grove-kdp/` (DOCX render)
 
 ---
 

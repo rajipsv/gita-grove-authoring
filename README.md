@@ -36,18 +36,33 @@ No personal `~/.cursor` setup required — everything is in the repo.
 | `.cursor/rules/gita-grove-authoring.mdc` | Pre-approved Grove story work; no permission nagging |
 | `docs/` | Universe bibles, series catalog, format spec, manuscripts |
 | `scripts/data/gita-grove-curriculum.json` | Machine-readable adventure index + hooks + Guru Ma lines |
-| `SYNC.md` | Copy manuscripts back into `littleepicminds` when ready |
+| `scripts/lib/grove-manuscript/` | loadAdventure, validate, compile, story generation prompts |
+| `scripts/lib/grove-kdp/` | KDP DOCX export (book + draft) |
+| `SYNC.md` | Copy **content only** into `littleepicminds` when ready |
 
 ---
 
 ## Authoring workflow (summary)
 
 1. **Design order:** Grove Power → sub-skill → location → flaw → scenario → story → **ślokas last**
-2. **English-first** — Telugu via translation pass later
-3. **25-page module** per adventure — see `docs/book-format-spec.md`
-4. **Serial hooks** — page 25 teaser → next adventure (`docs/books/gv01-book-hooks.md` for Book 1)
-5. **Remember:** unique **Guru Ma line** per adventure, tied to paired Bhagavad Gita ślokas
+2. **Hybrid files:** `docs/books/*.story.json` (story) + `*.md` (back matter)
+3. **English-first** — Telugu via translation pass later
+4. **Validate & export here:**
+   ```bash
+   npm run grove:validate -- --id=gv01_a1
+   npm run grove:export-kdp -- --file=docs/books/gv01_a1-the-fair-before-the-drum.md --format=book
+   ```
+5. **Sync content to app:** `.\scripts\sync-to-app.ps1` (docs + curriculum only)
 6. **Update** `scripts/data/gita-grove-curriculum.json` after each manuscript
+
+## KDP / Word export (this repo)
+
+```bash
+npm install
+npm run grove:export-kdp -- --file=docs/books/gv01_a1-the-fair-before-the-drum.md --format=book
+```
+
+Skill: `.cursor/skills/gita-grove-kdp-export/` · Output: `output/kdp/*.docx`
 
 ---
 
