@@ -1,8 +1,16 @@
 # Gita Grove Authoring Kit
 
-Portable **agent memory + architecture** for writing Gita Grove children's books (`gv##_a#` adventures). Use this repo on any laptop and any Cursor account — skills and rules travel with the project.
+**Story generation engine** for Gita Grove (`gv##_a#` adventures) and future Little Epic Minds story lines.  
+Generate, validate, compile, and export here — then sync **content** to the product app.
 
-**App repo (optional):** [littleepicminds](https://github.com/) — UI, audio, legacy `sd*`/`sk*` theme pipeline. This repo is **authoring-only**.
+| Repo | Role |
+|------|------|
+| **gita-grove-authoring** (this) | **Engine** — story generation, validation, KDP export, Cursor skills |
+| **[littleepicminds](https://github.com/rajipsv/littleepicminds)** | **Product** — hosts synced content; app, audio, website for external users |
+
+The engine is intentionally **separate from the app** so we can reuse it for other story generations later (new series, formats, or audiences) without touching production runtime.
+
+Portable **agent memory + tooling** — clone on any laptop; skills and rules travel with the project.
 
 ---
 

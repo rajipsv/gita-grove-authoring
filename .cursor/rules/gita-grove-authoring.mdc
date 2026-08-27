@@ -7,6 +7,8 @@ alwaysApply: true
 
 The user has **pre-approved** all Gita Grove v2 work. Do **not** ask for confirmation before drafting unless they say to stop.
 
+**This repo is the story engine** — generate, validate, and export here. Sync content to littleepicminds for the product app. The engine may later support other story lines beyond Grove v2.
+
 ## Git (when syncing to littleepicminds)
 
 - Target branch: **`feature/gita-grove`** only — **never** `main` (`main` is live production).
