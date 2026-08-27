@@ -11,6 +11,7 @@
     "grove:compile": "node scripts/grove-compile-manuscript.js",
     "grove:generate-story": "node scripts/generate-grove-story.js",
     "grove:images": "node scripts/generate-grove-images.js",
+    "grove:character-prompts": "node scripts/grove-character-prompts.js",
     "grove:create-kdp-reference": "node scripts/create-kdp-reference-docx.js"
   },
   "devDependencies": {
