@@ -10,7 +10,7 @@ Portable **agent memory + architecture** for writing Gita Grove children's books
 
 1. **Clone this repo**
    ```bash
-   git clone <your-remote>/gita-grove-authoring.git
+   git clone https://github.com/rajipsv/gita-grove-authoring.git
    cd gita-grove-authoring
    ```
 
@@ -58,7 +58,7 @@ cd gita-grove-authoring
 git init
 git add .
 git commit -m "Gita Grove authoring kit — skills, rules, docs, curriculum"
-git remote add origin git@github.com:YOU/gita-grove-authoring.git
+git remote add origin https://github.com/rajipsv/gita-grove-authoring.git
 git push -u origin main
 ```
 
