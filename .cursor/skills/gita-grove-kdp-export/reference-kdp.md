@@ -9,14 +9,14 @@
 | Seekers (text-heavy option) | 8" × 10" portrait | 8 × 10 in |
 | Premium square (future SKU) | 8.5" × 8.5" | 8.5 × 8.5 in — large trim, higher cost |
 
-6×9 is **KDP regular trim** (cheaper than 8.5×8.5 large trim). At ≤110 pages B&W on Amazon.com, print cost is ~**$2.30** per copy.
+6×9 is **KDP regular trim**. Color interior modules (~25 pp) print cost ~**$5–8+** per copy (marketplace varies). All-B&W line art ~**$2.30** at ≤110 pp.
 
 ## Stacked page layout (story spreads)
 
 | Zone | Size | Content |
 |------|------|---------|
-| Top | ~4.75" × 4.75" | 1:1 B&W line art (AI square master) |
-| Bottom | ~2.5–3" band | Story text, 40–60 words, 14–16 pt |
+| Top | ~4.75" × 4.75" | 1:1 **full-color** picture-book illustration (AI square master) |
+| Bottom | ~2.5–3" band | Story text, 40–60 words, 14–16 pt — **black on white only** |
 
 Margins: 0.5" top/bottom, 0.625" left/right → **4.75" × 8"** live area.
 
@@ -45,9 +45,10 @@ Script defaults are editorial — **always verify in KDP previewer**.
 | Cover | Separate design (not from markdown export) |
 | Page count | Module ~25; chapter book ~84–88 |
 | Language | English (Telugu edition later) |
-| Ink type | **Black & white** interior (economy tier) |
+| Ink type | **Standard color** interior (illustrations); text is black-on-white in layout |
 | Paper | White |
 | Cover | Full color PDF uploaded separately |
+| Character refs | [`assets/characters/manifest.json`](../../../assets/characters/manifest.json) |
 
 ## Word workflow
 
@@ -56,8 +57,8 @@ Script defaults are editorial — **always verify in KDP previewer**.
    - `--layout=stacked` — draft export with art placeholders per story section
 2. Or start from [KDP 6×9 Word template](https://kdp.amazon.com/en_US/help/topic/G201834230)
 3. Insert page breaks at page-map boundaries (pages 1–25) if using draft export
-4. Drop 1:1 B&W line art in top zone of each story page
-5. Place story text in bottom band
+4. Drop 1:1 **color** illustrations in top zone of each story page (refs from `assets/characters/`)
+5. Place story text in bottom band (black on white — already in DOCX export)
 6. Optional: [Amazon Endure font](https://kdp.amazon.com/en_US/help/topic/G201834230) to reduce page count
 7. Save as PDF (embed fonts)
 8. Upload to KDP

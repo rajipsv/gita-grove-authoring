@@ -66,9 +66,9 @@ npm run grove:export-kdp:all
 
 1. Open DOCX in Word / LibreOffice (or paste into [KDP 6×9 Word template](https://kdp.amazon.com/en_US/help/topic/G201834230))
 2. Apply final typography and **page breaks** (exporter emits one page per `###` block; story length is dynamic)
-3. Drop **1:1 B&W line art** in top zone of each story page; text in bottom band
+3. Drop **1:1 full-color** illustrations in top zone (character refs in `assets/characters/`); text stays black-on-white in bottom band
 4. Optional: switch body to **Amazon Endure** font to reduce page count
-5. KDP → Create paperback → **Black & white** interior, white paper → upload interior PDF + **cover PDF** separately
+5. KDP → Create paperback → **Standard color** interior, white paper → upload interior PDF + **cover PDF** separately
 6. Use KDP previewer before publish
 
 ## Pandoc path (optional, higher fidelity)

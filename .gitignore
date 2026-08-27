@@ -2,6 +2,7 @@
 Thumbs.db
 *.swp
 output/kdp/
+output/images/
 *.pdf
 
 node_modules/

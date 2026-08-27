@@ -21,6 +21,7 @@ Cursor skills              legacy sd*/sk* themes
 | `docs/universe-bible.md` | `docs/` |
 | `docs/book-format-spec.md` | `docs/` |
 | `docs/books/*` (`.md`, `*.story.json`, hooks) | `docs/books/` |
+| `assets/` (character refs, manifest) | `assets/` |
 | `scripts/data/gita-grove-curriculum.json` | `scripts/data/` |
 
 Run:
@@ -37,6 +38,7 @@ Target branch in app repo: **`feature/gita-grove`** (not `main`).
 |------|-----|
 | `scripts/lib/grove-manuscript/` | Parse, validate, compile, loadAdventure |
 | `scripts/lib/grove-kdp/` | KDP DOCX render |
+| `scripts/generate-grove-images.js` | Image prompt briefs (API stub) |
 | `scripts/export-grove-manuscript-kdp.js` | Export CLI |
 | `scripts/grove-validate-manuscript.js` | Validation |
 | `scripts/grove-compile-manuscript.js` | Markdown preview |

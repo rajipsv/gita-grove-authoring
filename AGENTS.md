@@ -54,7 +54,7 @@ Curriculum entry (synopsis)
     → npm run grove:export-kdp -- --file=docs/books/....md --format=book
 ```
 
-**Code layout:** `scripts/lib/grove-manuscript/` (loadAdventure, validate, compile) · `scripts/lib/grove-kdp/` (DOCX render)
+**Code layout:** `scripts/lib/grove-manuscript/` (loadAdventure, validate, compile) · `scripts/lib/grove-kdp/` (DOCX render) · `assets/characters/manifest.json` (illustration refs)
 
 ---
 

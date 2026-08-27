@@ -44,6 +44,7 @@ No personal `~/.cursor` setup required — everything is in the repo.
 | `.cursor/rules/gita-grove-authoring.mdc` | Pre-approved Grove story work; no permission nagging |
 | `docs/` | Universe bibles, series catalog, format spec, manuscripts |
 | `scripts/data/gita-grove-curriculum.json` | Machine-readable adventure index + hooks + Guru Ma lines |
+| `assets/characters/` | Character reference PNGs + manifest for AI illustration |
 | `scripts/lib/grove-manuscript/` | loadAdventure, validate, compile, story generation prompts |
 | `scripts/lib/grove-kdp/` | KDP DOCX export (book + draft) |
 | `SYNC.md` | Copy **content only** into `littleepicminds` when ready |

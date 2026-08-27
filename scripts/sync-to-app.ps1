@@ -18,11 +18,12 @@ $Pairs = @(
     @("$Root\docs\universe-bible.md", "$AppRepo\docs\universe-bible.md"),
     @("$Root\docs\book-format-spec.md", "$AppRepo\docs\book-format-spec.md"),
     @("$Root\docs\books", "$AppRepo\docs\books"),
+    @("$Root\assets", "$AppRepo\assets"),
     @("$Root\scripts\data\gita-grove-curriculum.json", "$AppRepo\scripts\data\gita-grove-curriculum.json")
 )
 
 Write-Host "Syncing content from gita-grove-authoring -> littleepicminds"
-Write-Host "(docs, books, *.story.json, curriculum only - no export scripts)"
+Write-Host "(docs, books, assets, *.story.json, curriculum only - no export scripts)"
 Write-Host ""
 
 foreach ($pair in $Pairs) {
@@ -30,7 +31,11 @@ foreach ($pair in $Pairs) {
     if (-not (Test-Path $src)) { Write-Warning "Skip missing: $src"; continue }
     $dstDir = Split-Path -Parent $dst
     if (-not (Test-Path $dstDir)) { New-Item -ItemType Directory -Force -Path $dstDir | Out-Null }
-    Copy-Item -Path $src -Destination $dst -Recurse -Force
+    if ($src -match '\\books$|\\assets$') {
+        Copy-Item -Path (Join-Path $src '*') -Destination $dst -Recurse -Force
+    } else {
+        Copy-Item -Path $src -Destination $dst -Recurse -Force
+    }
     Write-Host "Copied $src -> $dst"
 }
 

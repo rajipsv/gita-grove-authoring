@@ -148,13 +148,13 @@ Cut out your {Power} leaf and place it on the Tree of Wisdom.
 {
   "adventureId": "{adventureId}",
   "defaults": {
-    "styleSuffix": "Children's book B&W line art, 1:1 square, Gita Grove Seeds, {location} palette"
+    "styleSuffix": "Children's picture book illustration, soft watercolor style, full color, 1:1 square, Gita Grove Seeds, warm gentle lighting, {location} palette, consistent character design, no text in image"
   },
   "pages": [
     {
       "beat": "Opens",
       "text": "40–60 words per page…",
-      "imagePrompt": "1:1 B&W line art scene description…"
+      "imagePrompt": "1:1 full-color picture book scene description…"
     }
   ]
 }

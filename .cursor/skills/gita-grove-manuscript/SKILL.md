@@ -20,8 +20,9 @@ Drafting or editing **`gv{book}_a{adv}`** adventure modules for Gita Grove (Seed
 3. `docs/gita-grove-series-v2.md` — synopsis row
 4. `docs/character-bible.md` + `docs/universe-bible.md` — cast/world
 5. `docs/books/gv{book}-book-hooks.md` — if present (Book 1: `gv01-book-hooks.md`)
-6. Prior manuscript in same book — continuity
-7. `scripts/data/gita-grove-curriculum.json` — target entry
+6. `assets/characters/manifest.json` — character reference paths for illustration
+7. Prior manuscript in same book — continuity
+8. `scripts/data/gita-grove-curriculum.json` — target entry
 
 ## Design order (mandatory)
 
@@ -43,6 +44,7 @@ Grove Power → sub-skill → location → lead flaw → scenario → story → 
 - [ ] Pair 2 ślokas; write Guru Ma line (see reference-guru-ma.md)
 - [ ] Art briefs (4 key spreads) in markdown
 - [ ] Update curriculum JSON entry
+- [ ] Add approved character refs to `assets/characters/` when illustrating (see `assets/README.md`)
 ```
 
 **Hybrid files:** Story lives in **`*.story.json`**; markdown holds back matter with one `###` block per printed page. Export reads JSON directly — compile is optional for human preview.
