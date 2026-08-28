@@ -1,39 +1,35 @@
 #!/usr/bin/env node
 /**
- * Print image-generation briefs from *.story.json + assets/characters/manifest.json.
+ * Print image-generation briefs from *.story.json + asset manifests.
  * Does not call an image API — paste prompts into Midjourney, Leonardo, etc.
  */
 
 const fs = require('fs');
 const path = require('path');
-const { loadAdventure, findManuscriptById } = require('./lib/grove-manuscript');
+const { loadAdventure, findManuscriptById, loadCurriculumEntry } = require('./lib/grove-manuscript');
+const { loadCharacterManifest, resolveStyleRefForAdventure, resolveStyleRefForLocation } = require('./lib/grove-style');
 
 const ROOT = path.resolve(__dirname, '..');
-const MANIFEST_PATH = path.join(ROOT, 'assets', 'characters', 'manifest.json');
 
 function loadManifest() {
-  if (!fs.existsSync(MANIFEST_PATH)) {
-    console.warn('No manifest at', MANIFEST_PATH);
-    return { characters: [], styleRef: null, styleSuffixBase: '' };
-  }
-  return JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
+  return loadCharacterManifest();
 }
 
 function parseArgs(argv) {
-  const out = { id: null, all: false };
+  const out = { id: null, all: false, location: null };
   for (const arg of argv) {
     if (arg === '--all') out.all = true;
     else if (arg.startsWith('--id=')) out.id = arg.slice('--id='.length);
+    else if (arg.startsWith('--location=')) out.location = arg.slice('--location='.length);
   }
   return out;
 }
 
 function refsForPrompt(manifest) {
-  const approved = (manifest.characters || []).filter((c) => {
+  return (manifest.characters || []).filter((c) => {
     const p = path.join(ROOT, c.primaryRef);
     return c.status === 'approved' && fs.existsSync(p);
   });
-  return approved;
 }
 
 function buildFullPrompt(page, adventure, manifest) {
@@ -41,14 +37,24 @@ function buildFullPrompt(page, adventure, manifest) {
   return [page.imagePrompt, suffix].filter(Boolean).join(', ');
 }
 
-function printBrief(adventure, manifest) {
+function printBrief(adventure, manifest, opts = {}) {
   const refs = refsForPrompt(manifest);
-  const stylePath = manifest.styleRef ? path.join(ROOT, manifest.styleRef) : null;
-  const styleExists = stylePath && fs.existsSync(stylePath);
+  const curriculum = loadCurriculumEntry(adventure.adventureId);
+  const locationName = opts.location || curriculum?.location;
+  const style = opts.location
+    ? resolveStyleRefForLocation(opts.location)
+    : resolveStyleRefForAdventure(adventure.adventureId);
 
   console.log(`\n=== ${adventure.adventureId} ===`);
   console.log('Story JSON:', adventure.storyPath || '(none)');
-  console.log('Style ref:', styleExists ? manifest.styleRef : `${manifest.styleRef || '(none)'} (missing)`);
+  if (locationName) console.log('Location:', locationName);
+  if (style) {
+    const label = style.exists ? style.file : `${style.file} (missing)`;
+    console.log('Style ref:', label);
+    if (style.lighting) console.log('  lighting:', style.lighting);
+  } else {
+    console.log('Style ref: (none — add assets/style/manifest.json)');
+  }
   if (refs.length) {
     console.log('Character refs (approved):');
     for (const c of refs) console.log(`  - ${c.id}: ${c.primaryRef}`);
@@ -84,6 +90,7 @@ function main() {
   } else {
     console.error('Usage: node scripts/generate-grove-images.js --id=gv01_a1');
     console.error('       node scripts/generate-grove-images.js --all');
+    console.error('       node scripts/generate-grove-images.js --id=gv01_a1 --location="Courage Hill"');
     process.exit(1);
   }
 
@@ -94,7 +101,7 @@ function main() {
       process.exit(1);
     }
     const adventure = loadAdventure(mdPath);
-    printBrief(adventure, manifest);
+    printBrief(adventure, manifest, opts);
   }
 }
 
